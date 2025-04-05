@@ -23,7 +23,7 @@
 install.packages("tidyverse")
 library(tidyverse)
 #----------------
-u2_data <- read.csv("//nas01.itap.purdue.edu/puhome/My Documents/agr 333/test/Forestry_Lab_Data/Forestry_lab1-main/Forestry_lab1-main/U2_2017data.csv")
+u2_data <- read.csv("C:/Users/kate/Downloads/Classes/AGR 333/Lab Material/U2_2017data.csv")
 #----------------
 
 ### Step 1.3: Explore the structure and summary of the dataframe
@@ -66,7 +66,7 @@ u2_data <- u2_data %>% filter(Class == "O")
 # Make sure to use the "Raw" URL of the file.
 
 #----------------     
-SppCode <- read.csv("//nas01.itap.purdue.edu/puhome/My Documents/agr 333/test/Forestry_Lab_Data/Forestry_lab1-main/Forestry_lab1-main/Species_Codes.csv")
+SppCode <- read.csv("C:/Users/kate/Downloads/Classes/AGR 333/Lab Material/Species_Codes.csv")
 #---------------- 
 
 # Merge u2_data with SppCode using merge.data.frame.

@@ -1,4 +1,3 @@
-
 ################################################################################
 #                                                                              #
 #                           3. Summarize Data                                  #
@@ -19,7 +18,9 @@
 #   - Add the result as a new column named `BA` to `sum_u2_BA`.
 
 #----------------
-#sum_u2_BA <-  trees %>%
+sum_u2_BA <-  trees %>%
+  group_by(Plot) %>%
+  summarise(BA = sum(BA_pa))
 #----------------
 
 
@@ -29,7 +30,9 @@
 #   - Add the result as a new column named `TPA` to `sum_u2_TPA`.
 
 #----------------
-#sum_u2_TPA <- trees %>%
+sum_u2_TPA <- trees %>%
+  group_by(Plot) %>%
+  summarise(TPA = sum(TPA))
 #----------------
 
 
@@ -40,14 +43,15 @@
 # new_df_name <- dataframe1 %>% inner_join(dataframe2, by = "common_column")
 
 #----------------
-#sum_u2 <- sum_u2_BA %>%
+sum_u2 <- sum_u2_BA %>%
+  inner_join(sum_u2_TPA, by = "Plot")
 #----------------
 
 # Question: Which plot has the maximum basal area?
 # Example of sorting data using dplyr:
 #   dataframe %>% arrange(desc(column_to_sort_by))
-# YOUR ANSWER
-
+# E3
+sum_u2 %>% arrange(desc(BA))
 #----------------
 #sum_u2 %>% 
 #----------------
@@ -56,7 +60,7 @@
 # Checkpoint: Review the Largest DBH Values
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Use the following code to verify your results:
-#head(sum_u2 %>% arrange(desc(TPA)))
+head(sum_u2 %>% arrange(desc(TPA)))
 
 # Your results should look similar to this:
 
@@ -69,4 +73,3 @@
 #     B6    137.    268
 #     E7     73.9   252
 #     G6    126.    248
-
